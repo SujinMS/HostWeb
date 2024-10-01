@@ -18,3 +18,5 @@ spec:
         imagePullPolicy: IfNotPresent  # Prevents pulling if image is available locally
         ports:
         - containerPort: 80  # Replace with the port your app listens to
+      imagePullSecrets:
+      - name: my-registry-secret # Use the name of your secret here        
