@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-web
+spec:
+  replicas: 2  # Number of desired pods
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+      - name: web
+        image: hostweb:latest  # Make sure this matches your local image
+        imagePullPolicy: IfNotPresent  # Prevents pulling if image is available locally
+        ports:
+        - containerPort: 80  # Replace with the port your app listens to
